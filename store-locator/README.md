@@ -6,7 +6,8 @@ A fast, interactive store locator web app built with React. Find the nearest sto
  
 <img width="1920" height="1080" alt="Screenshot 2026-06-17 112011" src="https://github.com/user-attachments/assets/0c653ef1-4ab2-46ed-b7b0-c736f243402b" />
 
-<img width="1920" height="1080" alt="Screenshot 2026-06-17 111832" src="https://github.com/user-attachments/assets/228bdeba-c90b-43b1-9798-eaa7a73e6337" />
+<img width="1920" height="1080" alt="Screenshot 2026-06-17 111823" src="https://github.com/user-attachments/assets/c38d17ea-e717-46e3-bc51-13530589436a" />
+
 
 ---
 
