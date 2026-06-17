@@ -157,14 +157,52 @@ function App() {
       </div>
 
       {/* Main Content */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: window.innerWidth < 768 ? "column" : "row",
-          height: window.innerWidth < 768 ? "auto" : "calc(100vh - 160px)",
-          gap: "0",
-        }}
-      >
+<div
+  style={{
+    display: "flex",
+    flexDirection: window.innerWidth < 768 ? "column-reverse" : "row",
+    height: "calc(100vh - 160px)",
+  }}
+>
+  {/* Map - shows on top in mobile */}
+  <div
+    style={{
+      flex: window.innerWidth < 768 ? "none" : 1,
+      height: window.innerWidth < 768 ? "40vh" : "100%",
+      position: "relative",
+    }}
+  >
+    <Map
+      stores={searched ? sortedStores : storesData}
+      userLocation={userLocation}
+    />
+  </div>
+
+  {/* Store List - shows below map in mobile */}
+  <div
+    style={{
+      width: window.innerWidth < 768 ? "100%" : "380px",
+      height: window.innerWidth < 768 ? "60vh" : "100%",
+      overflowY: "auto",
+      padding: "16px",
+      background: "#f8fafc",
+      borderTop: window.innerWidth < 768 ? "1px solid #e5e7eb" : "none",
+      borderLeft: window.innerWidth < 768 ? "none" : "1px solid #e5e7eb",
+      flexShrink: 0,
+    }}
+  >
+    {!searched ? (
+      <div style={{ textAlign: "center", marginTop: "40px", color: "#9ca3af" }}>
+        <p style={{ fontSize: "40px", margin: 0 }}>🗺️</p>
+        <p style={{ fontSize: "15px", marginTop: "12px" }}>
+          Use your location or enter coordinates to find nearby stores
+        </p>
+      </div>
+    ) : (
+      <StoreList stores={sortedStores} />
+    )}
+  </div>
+
         {/* Left: Store List */}
         <div
           style={{
