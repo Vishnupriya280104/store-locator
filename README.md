@@ -2,7 +2,7 @@
 
 A fast, interactive store locator web app built with React. Find the nearest store to your current location across Bengaluru — with live map, sorted results, and travel time estimates.
 
- **Live Demo:** https://store-locator-pi.vercel.app
+ **Live Demo:** [https://store-locator-pi.vercel.app](https://store-locator-gmn9rysh5-vishnupriya-s-projects2.vercel.app/) 
  
 <img width="1920" height="1080" alt="Screenshot 2026-06-17 112011" src="https://github.com/user-attachments/assets/0c653ef1-4ab2-46ed-b7b0-c736f243402b" />
 
