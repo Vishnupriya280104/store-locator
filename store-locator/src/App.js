@@ -160,21 +160,25 @@ function App() {
       <div
         style={{
           display: "flex",
-          height: "calc(100vh - 160px)",
+          flexDirection: window.innerWidth < 768 ? "column" : "row",
+          height: window.innerWidth < 768 ? "auto" : "calc(100vh - 160px)",
           gap: "0",
         }}
       >
         {/* Left: Store List */}
         <div
           style={{
-            width: "380px",
+            width: window.innerWidth < 768 ? "100%" : "380px",
+            height: window.innerWidth < 768 ? "auto" : "auto",
             overflowY: "auto",
             padding: "20px 16px",
             background: "#f8fafc",
-            borderRight: "1px solid #e5e7eb",
+            borderRight: window.innerWidth < 768 ? "none" : "1px solid #e5e7eb",
+            borderBottom: window.innerWidth < 768 ? "1px solid #e5e7eb" : "none",
             flexShrink: 0,
           }}
         >
+        
           {!searched ? (
             <div style={{ textAlign: "center", marginTop: "60px", color: "#9ca3af" }}>
               <p style={{ fontSize: "40px", margin: 0 }}>🗺️</p>
@@ -188,7 +192,12 @@ function App() {
         </div>
 
         {/* Right: Map */}
-        <div style={{ flex: 1, position: "relative" }}>
+        <div style={{ 
+          flex: 1, 
+          position: "relative",
+          height: window.innerWidth < 768 ? "400px" : "auto",
+          minHeight: "350px",
+        }}>
           <Map
             stores={searched ? sortedStores : storesData}
             userLocation={userLocation}
