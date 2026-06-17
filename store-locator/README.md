@@ -95,9 +95,9 @@ The main challenge was a Leaflet default marker icon issue that is well-known in
 ---
 ---
 
-## <img width="1920" height="1080" alt="Screenshot 2026-06-17 111832" src="https://github.com/user-attachments/assets/09be4bd3-a6de-4100-9cf3-00fb9250d3ed" />
-<img width="1920" height="1080" alt="Screenshot 2026-06-17 111832" src="https://github.com/user-attachments/assets/82a28a23-4f7e-44ba-a703-e8bed2ba07ed" />
- Author
+
+
+
 
 **Vishnupriya** — ECE Final Year Student, Bengaluru  
 Built as part of a technical case study assignment.
