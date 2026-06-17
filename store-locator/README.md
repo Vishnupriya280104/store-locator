@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+#  Store Locator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fast, interactive store locator web app built with React. Find the nearest store to your current location across Bengaluru — with live map, sorted results, and travel time estimates.
 
-## Available Scripts
+ **Live Demo:** https://store-locator-pi.vercel.app
+ 
+<img width="1920" height="1080" alt="Screenshot 2026-06-17 112011" src="https://github.com/user-attachments/assets/0c653ef1-4ab2-46ed-b7b0-c736f243402b" />
 
-In the project directory, you can run:
+<img width="1920" height="1080" alt="Screenshot 2026-06-17 111832" src="https://github.com/user-attachments/assets/228bdeba-c90b-43b1-9798-eaa7a73e6337" />
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-  **Auto-detect location** — One click to find stores near you using GPS
+-  **Interactive map** — Live OpenStreetMap with clickable store markers
+-  **Distance calculation** — Haversine formula for accurate straight-line distance
+-  **Travel time estimate** — Estimated drive time based on average city speed
+-  **Nearest store highlight** — Green marker and badge for the closest store
+-  **Sorted results panel** — All 10 stores ranked by distance with full details
+-  **Manual coordinate input** — Enter lat/lng manually for testing or demo
+-  **Error handling** — Graceful messages for denied permissions or invalid input
+-  **PWA support** — Installable on Android and desktop like a native app
+-  **No API keys required** — Fully free stack, works out of the box
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  Technology Stack
 
-### `npm run build`
+| Technology | Purpose |
+|---|---|
+| React 18 | Frontend UI framework |
+| Leaflet.js + React-Leaflet | Interactive map rendering |
+| OpenStreetMap | Free map tiles (no API key needed) |
+| Browser Geolocation API | GPS-based user location detection |
+| Haversine Formula | Distance calculation between coordinates |
+| Vercel | Deployment and hosting |
+| PWA (Service Worker) | Installable app experience |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##  Setup and Run Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v16 or above)
+- npm
 
-### `npm run eject`
+### Steps
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# 1. Clone the repository
+git clone https://github.com/Vishnupriya280104/store-locator.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 2. Navigate into the project folder
+cd store-locator/store-locator
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# 3. Install dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# 4. Start the development server
+npm start
+```
 
-## Learn More
+The app will open at **http://localhost:3000**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### To build for production
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+##  Assumptions Made
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Store data is mock data representing 10 realistic locations across Bengaluru with accurate GPS coordinates
+- Distance is calculated as straight-line (as-the-crow-flies) using the Haversine formula, not road distance
+- Travel time is estimated assuming an average city driving speed of 25 km/h
+- The app is scoped to Bengaluru; the coordinate input allows testing from any location
+- No backend or database is required — all data is stored client-side for simplicity and speed
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##  AI-Assisted Development
 
-### Making a Progressive Web App
+### Tools Used
+This project was built using **Claude (Anthropic)** as the primary AI development assistant, alongside **GitHub Copilot** suggestions within VS Code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### How AI Helped
+Claude assisted throughout the entire development process — from project architecture decisions to writing individual components. It suggested the overall folder structure (`components/`, `data/`, `utils/`), generated the Haversine distance utility, helped configure Leaflet's custom marker icons (a known tricky issue with React), and guided the Vercel deployment configuration including the Root Directory fix. The AI also helped me understand *why* each piece of code works, not just what to write — for example, explaining how the `useMap` hook from React-Leaflet enables smooth `flyTo` animation when a user's location is detected.
 
-### Advanced Configuration
+### Challenges Encountered
+The main challenge was a Leaflet default marker icon issue that is well-known in the React ecosystem — the icons break when bundled with Webpack because of how asset paths are resolved. Claude identified this immediately and provided the standard fix using `L.Icon.Default.mergeOptions`. A second challenge was the Vercel 404 error caused by the project being in a subfolder inside the Git repository; this was resolved by setting the Root Directory to `store-locator` in Vercel's project settings. Both issues were diagnosed and fixed within minutes with AI assistance, which would have taken significantly longer through traditional debugging.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
+---
 
-### Deployment
+## <img width="1920" height="1080" alt="Screenshot 2026-06-17 111832" src="https://github.com/user-attachments/assets/09be4bd3-a6de-4100-9cf3-00fb9250d3ed" />
+<img width="1920" height="1080" alt="Screenshot 2026-06-17 111832" src="https://github.com/user-attachments/assets/82a28a23-4f7e-44ba-a703-e8bed2ba07ed" />
+ Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Vishnupriya** — ECE Final Year Student, Bengaluru  
+Built as part of a technical case study assignment.
